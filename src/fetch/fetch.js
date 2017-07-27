@@ -48,5 +48,8 @@ export default {
         //return fetch('/api/yingjiesheng');
         return fetch('http://localhost:3000/api/yingjiesheng');
 
+    },
+    xidian(){
+        return fetch('')
     }
 }
