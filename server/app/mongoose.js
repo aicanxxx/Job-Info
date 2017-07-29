@@ -23,7 +23,7 @@ var rule     = new schedule.RecurrenceRule();
 var times    = [1,6,11,16,21,26,31,36,41,46,51,56];
 rule.minute  = times;
 
-/*schedule.scheduleJob(rule, function(){
+schedule.scheduleJob(rule, function(){
     console.log('调用create...');
     yjs().then((infos)=>{
         Crawler.find().exec((err,docs)=>{
@@ -43,8 +43,8 @@ rule.minute  = times;
         })
     });
 
-});*/
-function create() {
+});
+/*function create() {
     console.log('1调用create...\n');
     yjs().then((infos)=>{
         Crawler.find().exec((err,docs)=>{
@@ -63,7 +63,7 @@ function create() {
             });
         })
     });
-}
+}*/
 
 function get(req,res,next){
     Crawler.find().exec((err,docs)=>{
@@ -78,7 +78,7 @@ function getCollection(req,res,next) {
     })
 }
 module.exports={
-    create,
+    //create,
     get,
     getCollection
 };

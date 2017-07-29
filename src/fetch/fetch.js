@@ -44,9 +44,9 @@ export function  fetch(url){
     })
 }
 export default {
-    yingjiesheng(){
+    yjs(){
         //return fetch('/api/yingjiesheng');
-        return fetch('http://localhost:3000/api/yingjiesheng');
+        return fetch('http://localhost:7017/api/yjs');
 
     },
     xidian(){

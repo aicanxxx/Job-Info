@@ -68,8 +68,8 @@ export default {
     methods:{
         getData(option,num){
             //console.log(option);
-            fecth.yingjiesheng().then((res)=>{
-                Object.keys(res).forEach(item=>{
+            fecth.yjs().then((res)=>{
+                /*Object.keys(res).forEach(item=>{
                     res[item].forEach((val,index)=>{
                         if(!this.infos[index]){
                             Vue.set(this.infos,index,{});
@@ -79,9 +79,10 @@ export default {
                         
                         //this.infos[index][item]=val;
                     })
-                })
+                })*/
+                this.infos=res;
             });
-            console.log(this.infos)
+            console.log(this.infos);
             this.isLoading=false;
         },
         chooseWeb(option,index){

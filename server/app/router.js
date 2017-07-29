@@ -22,7 +22,7 @@ router.all('*', function (req, res, next) {
 });
 
 router.get('/yjs',(req,res,next)=> {
-    db.create();
+    //db.create();
     db.get(req,res,next);
 });
 
