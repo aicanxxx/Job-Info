@@ -1,7 +1,8 @@
 # Job-infos
 
 > Get Important Job Information
-> For the graduates to obtain recruitment information, from the major recruitment sites to crawl site information, and its summary
+
+For the graduates to obtain recruitment information, from the major recruitment sites to crawl site information, and its summary
 
 
 ## Build Setup
