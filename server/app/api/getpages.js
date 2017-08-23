@@ -26,7 +26,7 @@ function getHtml(url){
     })
 }
 
-function getContent(url){
+/*function getContent(url){
     return Promise.all(url.map((item)=>{
         return getHtml(item);
     })).then((result)=>{
@@ -35,12 +35,35 @@ function getContent(url){
             return $('ul.searchResult').html();
         }).join('');
     });
-}
+}*/
 module.exports = {
     getYjs(){
-        return getContent(url.yjsUrl);
+        /*return getContent(url.yjsUrl);*/
+        return Promise.all(url.yjsUrl.map((item)=>{
+            return getHtml(item);
+        })).then((result)=>{
+            return result.map((items)=>{
+                const $=cheerio.load(items);
+                return $('ul.searchResult').html();
+            }).join('');
+        });
     },
     getXdrs(){
-        return getContent(url.xdrsUrl)
+        /*return getContent(url.)*/
+        return getHtml(url.xdrsUrl).then((result)=>{
+            const $=cheerio.load(result);
+            return $('table.threadlisttableid').html();
+        });
+        /*return new Promise((resolve,reject)=>{
+
+        })*/
+        /*return Promise.all(url.xdrsUrl.map((item)=>{
+            return getHtml(item);
+        })).then((result)=>{
+            return result.map((items)=>{
+                const $=cheerio.load(items);
+                return $('ul.searchResult').html();
+            }).join('');
+        });*/
     }
 };

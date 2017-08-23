@@ -11,21 +11,16 @@ var address={
         {'word':'2018校园招聘','start':'30'},
         {'word':'2018校园招聘','start':'40'},
     ],
-    xdrs:[
-        {'page':'1'},
-        {'page':'2'},
-        {'page':'3'},
-        {'page':'4'},
-        {'page':'5'}
-    ]
+    xdrs: {'mod':'forumdisplay',
+        'fid':'554',
+        'filter':'typeid',
+        'typeid':'43'}
 }
 
 var yjsUrl=address.yjs.map((item)=>{
     return 'http://s.yingjiesheng.com/search.php?'+qs.stringify(item);
 });
-var xdrsUrl=address.xdrs.map((item)=>{
-    return 'http://rs.xidian.edu.cn/forum.php?mod=forumdisplay&fid=554&filter=typeid&typeid=43&'+qs.stringify(item);
-});
+var xdrsUrl= 'http://rs.xidian.edu.cn/forum.php?'+qs.stringify(address.xdrs);
 
 module.exports={
     yjsUrl,

@@ -10,19 +10,20 @@ module.exports = function () {
     return new Promise((resolve,reject)=>{
         //console.log('2调用yjs...\n');
         //console.log(getPages());
-        getPages.getYjs().then((html) => {
-            //console.log('5打印html\n'+html+'\n');
-            html=html.replace(/<em>|<\/em>|&nbsp;|\?/g,'');
+        getPages.getXdrs().then((html) => {
+            console.log('5打印html\n'+html+'\n');
+            /*html=html.replace(/<em>|<\/em>|&nbsp;|\?/g,'');*/
             const $ = cheerio.load(html);
             //console.log('6打印$\n'+$.html()+'\n');
-            let $title = $('h3.title a');
-            let $desc = $('ul.searchResult div');
-            let $date = $('ul.searchResult p span.date');
-            let $from = $('ul.searchResult p');
-            if($title.attr('href')=="http://www.yingjiesheng.com"){
+            let $title = $('th.common a.xst');
+            let $author = $('td.by cite a');
+            let $date = $('td.by em span span');
+            let $replyNum = $('td.num a.xi2');
+            let $viewNum = $('td.num em');
+            /*if($title.attr('href')=="http://www.yingjiesheng.com"){
                 $title = $('h3.title a').slice(1);
                 $desc = $('ul.searchResult div').slice(1);
-            }
+            }*/
             //注意：cheerio中遍历时参数为index，value，array,而js中遍历参数为value，index，array，不能弄错
             $title.each((index, item) => {
                 if(!infos[index]){
@@ -31,27 +32,22 @@ module.exports = function () {
                 infos[index].title = $(item).text();
                 infos[index].links= $(item).attr('href');
             });
-            $desc.each((index, item) => {
-                let str = '';
-                $(item.childNodes).each((i, val) => {
-                    if (val.nodeType == 3) {
-                        str += $(val).text().trim();
-                    }
-                });
-                infos[index].desc = str.replace('\s|\0', '');
+            $author.each((index, item) => {
+                if(index%2==0){
+                    infos[index].author=$(item).text();
+                    infos[index].authorLink=$(item).attr('href');
+                }
             });
             //infos.desc.shift();
             $date.each((index, item) => {
-                infos[0].date = $(item).text();
+                infos[index].date = $(item).text();
+                infos[index].dateTitle = $(item).attr('title');
             });
-            $from.each((index, item) => {
-                let str='';
-                $(item.childNodes).each((i,val)=>{
-                    if(val.nodeType==3){
-                        str += $(val).text().trim();
-                    }
-                });
-                infos[index].from = str.replace('\s|\0', '');
+            $replyNum.each((index, item) => {
+                infos[index].reply = $(item).text();
+            });
+            $viewNum.each((index, item) => {
+                infos[index].view = $(item).text();
             });
             resolve(infos);
         })

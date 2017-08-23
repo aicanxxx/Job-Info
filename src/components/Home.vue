@@ -1,22 +1,30 @@
 <template>
   <div class="home">
-    <aside class="auto-height left">
-      <ul>
-        <li v-for="(item,index) in options" @click="chooseWeb(item,index)" class="aside-list">{{item.web}}</li>
-      </ul>
+      <aside class="auto-height">
+        <ul>
+          <li v-for="(item,index) in options" @click="chooseWeb(item,index)" class="aside-list">{{item.web}}</li>
+        </ul>
+      </aside>
+      <article class="auto-height">
+        <ul>
+          <li v-for="(item,index) in infos" class="article-list">
+            <h3><a :href="item.links">{{item.title}}</a></h3>
+            <p class="date">
+              <span>{{item.date}}</span>
+              <span>{{item.from}}</span>
+            </p>
+            <p>{{item.desc}}</p>
+          </li>
+        </ul>
+      </article>
+    <!--<aside class="auto-height">
+      <img src="http://placehold.it/200x200.png" alt="200x200"/>
+      <p>这是一个 Figure</p>
     </aside>
     <article class="auto-height">
-      <ul>
-        <li v-for="(item,index) in infos" class="article-list">
-          <h3><a :href="item.links">{{item.title}}</a></h3>
-          <p class="date">
-            <span>{{item.date}}</span>
-            <span>{{item.from}}</span>
-          </p>
-          <p>{{item.desc}}</p>
-        </li>
-      </ul>
-    </article>
+      <img src="http://placehold.it/250x250.png" alt="200x200"/>
+      <p>这是一个 Figure</p>
+    </article>-->
   </div>
   <!--<div class="hello">
     <h1>{{ msg }}</h1>

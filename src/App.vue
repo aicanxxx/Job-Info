@@ -11,8 +11,8 @@
         </figure>
         <p class="name left">Job-Infos</p>
         <nav class="menu">
-          <a class="menu-item" href="#"><i class="fa fa-home fa-fw"></i>&nbsp; 首页</a>
-          <a class="menu-item" href="#"><i class="fa fa-file-text fa-fw"></i>&nbsp; 面经</a>
+          <router-link class="menu-item" :to="'home'"><i class="fa fa-home fa-fw"></i>&nbsp; 首页</router-link>
+          <a class="menu-item" :href="'/b'"><i class="fa fa-file-text fa-fw"></i>&nbsp; 面经</a>
           <a class="menu-item" href="#"><i class="fa fa-book fa-fw"></i>&nbsp; 资料</a>
           <a class="menu-item" href="http://www.cnblogs.com/aicanxxx/"><i class="fa fa-pencil fa-fw"></i>&nbsp; 博客</a>
           <a class="menu-item" href="#"><i class="fa fa-github fa-fw"></i>&nbsp; github</a>
@@ -119,33 +119,25 @@ export default {
     width: 100%;
     min-width: 720px;
     background-color: white;
-    overflow: hidden;
+    /*overflow: hidden;*/
   }
   main article{
-    margin-left : 270px;
+    padding-left : 20px;
+    /*padding-top: 10px;*/
   }
-  aside{
-    width: 240px;
-    background-color: lavenderblush;
-    box-shadow: 4px 0 5px grey;
+  /*main article ul{
+    padding-top: 20px;
+  }*/
+  .home{
+    width: 100%;
+    display: table;
   }
   .auto-height{
-    padding-bottom: 2000px;
-    margin-bottom: -1950px;
+    display: table-cell;
+    /*vertical-align: middle;*/
+    text-align: center;
   }
-  .aside-list{
-    padding: 15px 0;
-    border-bottom: solid 1px thistle;
-    font-size: 18px;
-    font-weight: 500;
-    cursor: pointer;
-  }
-  aside li:hover{
-    background-color: thistle;
-  }
-  article{
-    padding-top: 20px;
-  }
+  
   .article-list{
     text-align: left;
     padding: 10px;
@@ -163,6 +155,21 @@ export default {
     padding-right:10px ;
     font-size: 10px;
     color: gray;
+  }
+  aside{
+    width: 240px;
+    background-color: lavenderblush;
+    box-shadow: 4px 0 5px grey;
+  }
+  .aside-list{
+    padding: 15px 0;
+    border-bottom: solid 1px thistle;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  aside li:hover{
+    background-color: thistle;
   }
   footer{
     width:100%;

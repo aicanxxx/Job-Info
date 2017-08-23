@@ -42,7 +42,7 @@ module.exports = function () {
             });
             //infos.desc.shift();
             $date.each((index, item) => {
-                infos[0].date = $(item).text();
+                infos[index].date = $(item).text();
             });
             $from.each((index, item) => {
                 let str='';
