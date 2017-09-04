@@ -7,15 +7,15 @@
     <header>
       <div class="header-main">
         <figure class="left">
-          <img src="./assets/logo2.png" alt="logo">
+          <img src="./assets/logo.png" alt="logo">
         </figure>
         <p class="name left">Job-Infos</p>
         <nav class="menu">
           <router-link class="menu-item" :to="'home'"><i class="fa fa-home fa-fw"></i>&nbsp; 首页</router-link>
-          <a class="menu-item" :href="'/b'"><i class="fa fa-file-text fa-fw"></i>&nbsp; 面经</a>
-          <a class="menu-item" href="#"><i class="fa fa-book fa-fw"></i>&nbsp; 资料</a>
-          <a class="menu-item" href="http://www.cnblogs.com/aicanxxx/"><i class="fa fa-pencil fa-fw"></i>&nbsp; 博客</a>
-          <a class="menu-item" href="#"><i class="fa fa-github fa-fw"></i>&nbsp; github</a>
+          <router-link class="menu-item" :to="'view'"><i class="fa fa-file-text fa-fw"></i>&nbsp; 面经</router-link>
+          <router-link class="menu-item" :to="'note'"><i class="fa fa-book fa-fw"></i>&nbsp; 备忘录</router-link>
+          <router-link class="menu-item" :to="'http://www.cnblogs.com/aicanxxx/'"><i class="fa fa-pencil fa-fw"></i>&nbsp; 博客</router-link>
+          <router-link class="menu-item" :to="'https://www.github.com/aicanxxx/'"><i class="fa fa-github fa-fw"></i>&nbsp; github</router-link>
         </nav>
       </div>
     </header>
@@ -83,11 +83,11 @@ export default {
   }
   header{
     width:100%;
+    min-width: 850px;
     height: 80px;
     background-color: pink ;
   }
   .header-main{
-    min-width: 720px;
     padding: 5px 60px;
     *zoom: 1;/*兼容IE6*/
   }
@@ -173,7 +173,7 @@ export default {
   }
   footer{
     width:100%;
-    min-width: 720px;
+    min-width: 850px;
     height: 60px;
     background-color: lavenderblush ;
     border-top:solid 1px thistle;
