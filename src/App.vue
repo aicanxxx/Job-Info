@@ -1,8 +1,4 @@
 <template>
-  <!--<div id="app">
-    <img src="./assets/logo.png">
-    <router-view></router-view>
-  </div>-->
   <div id="app">
     <header>
       <div class="header-main">
@@ -11,11 +7,7 @@
         </figure>
         <p class="name left">Job-Infos</p>
         <nav class="menu">
-          <router-link class="menu-item" :to="'home'"><i class="fa fa-home fa-fw"></i>&nbsp; 首页</router-link>
-          <router-link class="menu-item" :to="'view'"><i class="fa fa-file-text fa-fw"></i>&nbsp; 面经</router-link>
-          <router-link class="menu-item" :to="'note'"><i class="fa fa-book fa-fw"></i>&nbsp; 备忘录</router-link>
-          <router-link class="menu-item" :to="'http://www.cnblogs.com/aicanxxx/'"><i class="fa fa-pencil fa-fw"></i>&nbsp; 博客</router-link>
-          <router-link class="menu-item" :to="'https://www.github.com/aicanxxx/'"><i class="fa fa-github fa-fw"></i>&nbsp; github</router-link>
+          <router-link v-for="item in menu" class="menu-item" :to="item.link"><i class="fa fa-fw" :class="[item.icon]"></i>{{item.title}}</router-link>
         </nav>
       </div>
     </header>
@@ -33,28 +25,31 @@ export default {
     name: 'app',
     data(){
       return {
-          types:[
-            {
-                title:'主页',
-                link:'home'
-            },
-            {
-                title:'面经',
-                link:'view'
-            },
-            {
-                title:'资料',
-                link:'learn'
-            },
-            {
-                title:'博客',
-                link:'http://www.cnblogs.com/aicanxxx/'
-            },
-            {
-                title:'github',
-                link:'http://www.github.com/aicanxxx/'
-            }
-          ]
+          menu:[{
+              title:'home',
+              link:'/',
+              icon:'fa-home'
+          },
+          {
+              title:'infos',
+              link:'infos',
+              icon:'fa-file-text'
+          },
+          {
+              title:'needs',
+              link:'learn',
+              icon:'fa-book'
+          },
+          {
+              title:'blog',
+              link:'http://www.cnblogs.com/aicanxxx/',
+              icon:"fa-pencil"
+          },
+          {
+              title:'github',
+              link:'http://www.github.com/aicanxxx/',
+              icon:'fa-github'
+          }]
       }
     }
 }
@@ -86,6 +81,7 @@ export default {
     min-width: 850px;
     height: 80px;
     background-color: pink ;
+    margin-bottom: 20px;
   }
   .header-main{
     padding: 5px 60px;
